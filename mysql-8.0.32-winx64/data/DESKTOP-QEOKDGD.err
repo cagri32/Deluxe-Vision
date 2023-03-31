@@ -1,0 +1,16 @@
+2023-03-31T05:30:29.417514Z 0 [System] [MY-010116] [Server] D:\Users\Cagri\Desktop\YORK\4413\Project\deluxe-vision\mysql-8.0.32-winx64\bin\mysqld.exe (mysqld 8.0.32) starting as process 11016
+2023-03-31T05:30:29.437433Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-03-31T05:30:29.946737Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-03-31T05:30:30.412173Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-03-31T05:30:30.412897Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-03-31T05:30:30.504346Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2023-03-31T05:30:30.504470Z 0 [System] [MY-010931] [Server] D:\Users\Cagri\Desktop\YORK\4413\Project\deluxe-vision\mysql-8.0.32-winx64\bin\mysqld.exe: ready for connections. Version: '8.0.32'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2023-03-31T05:32:30.262239Z 0 [System] [MY-010116] [Server] D:\Users\Cagri\Desktop\YORK\4413\Project\deluxe-vision\mysql-8.0.32-winx64\bin\mysqld.exe (mysqld 8.0.32) starting as process 5572
+2023-03-31T05:32:30.281596Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-03-31T05:32:31.089889Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-03-31T05:32:31.405543Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2023-03-31T05:32:31.409736Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2023-03-31T05:32:31.564760Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-03-31T05:32:31.565049Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-03-31T05:32:31.627746Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2023-03-31T05:32:31.627994Z 0 [System] [MY-010931] [Server] D:\Users\Cagri\Desktop\YORK\4413\Project\deluxe-vision\mysql-8.0.32-winx64\bin\mysqld.exe: ready for connections. Version: '8.0.32'  socket: ''  port: 3306  MySQL Community Server - GPL.
