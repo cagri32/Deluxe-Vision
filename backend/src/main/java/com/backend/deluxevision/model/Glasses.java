@@ -21,6 +21,9 @@ public class Glasses implements Serializable {
 	private Long id;
 	private String name;
 	private String shape;
+	private String brand;
+	private String colour;
+	private Double price;
 	private String imageURL;
 
 	@Column(nullable = false, updatable = false)
@@ -76,9 +79,42 @@ public class Glasses implements Serializable {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Glasses{" + "id=" + id + ", name='" + name + '\'' + ", shape='" + shape + '\'' + ", imageURL='"
-				+ imageURL + '\'' + ", glassesCode='" + glassesCode + '\'' + '}';
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "Glasses{" +
+				"id=" + id +
+				", id=" + id +
+				", name='" + name + '\'' +
+				", shape='" + shape + '\'' +
+				", brand='" + brand + '\'' +
+				", colour='" + colour + '\'' +
+				", price='" + price + '\'' +
+				", imageURL='" + imageURL + '\'' +
+				", glassesCode='" + glassesCode + '\'' +
+				'}';
 	}
 }

@@ -46,15 +46,16 @@ public class GlassesController {
 
 	@PutMapping("/update")
 	public ResponseEntity<Glasses> updateGlasses(@RequestBody Glasses glasses) {
-		Glasses newGlasses = glassesService.updateGlasses(glasses);
-		return new ResponseEntity<>(newGlasses, HttpStatus.OK);
+		glassesService.updateGlasses(glasses);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
+/*
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Glasses> updateGlasses(@RequestBody Glasses glasses, Long id) throws NotFoundException {
 		Glasses newGlasses = glassesService.updateGlasses(glasses, id);
 		return new ResponseEntity<>(newGlasses, HttpStatus.OK);
 	}
+*/
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteGlasses(@PathVariable("id") Long id) {

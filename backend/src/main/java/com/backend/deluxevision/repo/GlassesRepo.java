@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface GlassesRepo extends JpaRepository<Glasses, Long> {
     void deleteGlassesById(Long id);
     Optional<Glasses> findGlassesById(Long id);
+    Optional<Glasses> findGlassesByName(String name);
 }

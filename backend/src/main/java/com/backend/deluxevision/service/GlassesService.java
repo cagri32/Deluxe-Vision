@@ -33,17 +33,27 @@ public class GlassesService {
 		return glassesRepo.findAll();
 	}
 
+/*
 	public Glasses updateGlasses(Glasses glasses) {
 		return glassesRepo.save(glasses);
 	}
+*/
 
-	public Glasses updateGlasses(Glasses glasses, Long id) throws NotFoundException {
-		Glasses currGlasses = this.findGlassesById(id);
-		currGlasses.setName(glasses.getName());
-		currGlasses.setShape(glasses.getShape());
-		currGlasses.setImageURL(glasses.getImageURL());
+	public void updateGlasses(Glasses updatedGlasses) {
+		// find the glasses with the same name
+		Optional<Glasses> optionalGlasses = glassesRepo.findGlassesByName(updatedGlasses.getName());
 
-		return glassesRepo.save(glasses);
+		if (optionalGlasses.isPresent()) {
+			// replace the old glasses with the one that comes in the parameter using set functions
+			Glasses oldGlasses = optionalGlasses.get();
+			oldGlasses.setShape(updatedGlasses.getShape());
+			oldGlasses.setBrand(updatedGlasses.getBrand());
+			oldGlasses.setColour(updatedGlasses.getColour());
+			oldGlasses.setPrice(updatedGlasses.getPrice());
+			oldGlasses.setImageURL(updatedGlasses.getImageURL());
+
+			glassesRepo.save(oldGlasses);
+		}
 	}
 
 	public Glasses findGlassesById(Long id) throws NotFoundException {
