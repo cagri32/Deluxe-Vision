@@ -1,19 +1,16 @@
 <mat-toolbar id="mainNav">
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" fxFlex>
-        <div fxLayoutAlign="start center" fxLayoutGap="10px">
-            <div>
-                <button mat-button>
-              <a routerLink="home">
-                <mat-icon>
-                  <img class="icon" src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png">
-                </mat-icon>
-              </a>
-                </button>
-            </div>
-
-            <div class="mainNavTitle">
-                Deluxe Vision
-            </div>
-        </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" fxFlex>
+    <div fxLayoutAlign="start center" fxLayoutGap="50px">
+      <div class="mainNavTitle">
+        <button mat-button routerLink="home">Deluxe Vision</button>
+      </div>
+      <button mat-button routerLink="about">About</button>
+      <button mat-button routerLink="product">Shop</button>
     </div>
+    <div fxLayoutAlign="end center">
+      <button mat-button routerLink="login">
+        <i class="fas fa-user"></i>
+      </button>
+    </div>
+  </div>
 </mat-toolbar>
