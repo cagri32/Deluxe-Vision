@@ -1,9 +1,24 @@
 # Deluxe-Vision
 
 
-Dependencies
+Dependencies and Technologies We used:
 
-1. Install JDK latest version and path setup along with JAVA_HOME
-2. Install Git (distributed version control system)
-3. Install Eclipse
-4. Apache Tomcat (I am going to use version 8)
+1. JDK 20
+2. Git 
+3. Eclipse, Intellij
+4. Apache Tomcat (version 8)
+5. MYSQLSH Command Line Interface (CLI)
+
+Steps to get the application running:
+
+Run the database:
+Open MYSQLH CLI
+Run "\connect root@localhost" command
+Enter the password
+
+Run the backend:
+
+Open the project in an IDE (Intellij, Eclipse etc)
+Run 'mvn clean install' command in the project directory.
+Right click on "/backend/src/main/java/com/backend/deluxevision/DeluxevisionApplication.java" and choose Run As > Java Application
+
