@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+mat-toolbar{ 
+    background-image: linear-gradient(to right, #2e22ac, #a23da1);
+    color: white;
+    border-bottom: #2e22ac;
+    font-family: 'Open Sans';
+}
+
+button {
+    border-radius: 8px;
+
+}
+
+button:hover {
+    background-color: grey;
+}
