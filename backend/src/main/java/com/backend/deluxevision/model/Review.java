@@ -14,16 +14,25 @@ public class Review implements Serializable {
     private Long reviewId;
     private Long glassesId;
     private String review;
+    private String userName;
+    private String fullName;
+    private int rating;
+    private String title;
 
     public Review() {
         // Default constructor
     }
 
-    public Review(Long reviewId, Long glassesId, String review) {
+    public Review(Long reviewId, Long glassesId, String review, String userName, String fullName, int rating, String title) {
         this.reviewId = reviewId;
         this.glassesId = glassesId;
         this.review = review;
+        this.userName = userName;
+        this.fullName = fullName;
+        this.rating = rating;
+        this.title = title;
     }
+
 
     public Long getReviewId() {
         return reviewId;
@@ -49,12 +58,48 @@ public class Review implements Serializable {
         this.review = review;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "Review{" +
                 "reviewId=" + reviewId +
                 ", glassesId=" + glassesId +
                 ", review='" + review + '\'' +
+                ", userName='" + userName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", rating=" + rating +
+                ", title='" + title + '\'' +
                 '}';
     }
 }

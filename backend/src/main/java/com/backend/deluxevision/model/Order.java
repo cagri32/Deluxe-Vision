@@ -1,5 +1,6 @@
 package com.backend.deluxevision.model;
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -16,16 +17,19 @@ public class Order implements Serializable {
     private String totalPrice;
     private String status;
 
+    private List<CartItem> orderItems;
+
     public Order() {
         // Default constructor
     }
 
-    public Order(Long orderId, String userName, String date, String totalPrice, String status) {
+    public Order(Long orderId, String userName, String date, String totalPrice, String status, List<CartItem> orderItems) {
         this.orderId = orderId;
         this.userName = userName;
         this.date = date;
         this.totalPrice = totalPrice;
         this.status = status;
+        this.orderItems = orderItems;
     }
 
     public Long getOrderId() {
@@ -68,6 +72,14 @@ public class Order implements Serializable {
         this.status = status;
     }
 
+    public List<CartItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<CartItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -76,6 +88,7 @@ public class Order implements Serializable {
                 ", date='" + date + '\'' +
                 ", totalPrice='" + totalPrice + '\'' +
                 ", status='" + status + '\'' +
+                ", orderItems=" + orderItems +
                 '}';
     }
 }

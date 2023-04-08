@@ -22,6 +22,7 @@ public class Glasses implements Serializable {
 	private String name;
 	private String shape;
 	private String brand;
+	private String category;
 	private String colour;
 	private Double price;
 	private String imageURL;
@@ -33,10 +34,16 @@ public class Glasses implements Serializable {
 		// Default constructor
 	}
 
-	public Glasses(String name, String shape, String imageURL) {
+	public Glasses(Long id, String name, String shape, String brand, String category, String colour, Double price, String imageURL, String glassesCode) {
+		this.id = id;
 		this.name = name;
 		this.shape = shape;
+		this.brand = brand;
+		this.category = category;
+		this.colour = colour;
+		this.price = price;
 		this.imageURL = imageURL;
+		this.glassesCode = glassesCode;
 	}
 
 	public String getName() {
@@ -103,16 +110,24 @@ public class Glasses implements Serializable {
 		this.price = price;
 	}
 
-	@java.lang.Override
-	public java.lang.String toString() {
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
 		return "Glasses{" +
 				"id=" + id +
-				", id=" + id +
 				", name='" + name + '\'' +
 				", shape='" + shape + '\'' +
 				", brand='" + brand + '\'' +
+				", category='" + category + '\'' +
 				", colour='" + colour + '\'' +
-				", price='" + price + '\'' +
+				", price=" + price +
 				", imageURL='" + imageURL + '\'' +
 				", glassesCode='" + glassesCode + '\'' +
 				'}';

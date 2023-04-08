@@ -1,6 +1,8 @@
 package com.backend.deluxevision.controller;
 
+import com.backend.deluxevision.model.CartItem;
 import com.backend.deluxevision.model.Order;
+import com.backend.deluxevision.model.Review;
 import com.backend.deluxevision.service.OrderService;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
@@ -50,4 +52,10 @@ public class OrderController {
         orderService.deleteOrderById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+//    @GetMapping("/{id}/orderItems")
+//    public ResponseEntity<List<CartItem>> getCartItemsByOrderId(@PathVariable("id") Long orderId) {
+//        List<CartItem> orderItems = orderService.getCartItemsByOrderId(orderId);
+//        return new ResponseEntity<>(orderItems, HttpStatus.OK);
+//    }
 }

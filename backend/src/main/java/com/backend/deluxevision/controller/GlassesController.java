@@ -2,6 +2,7 @@ package com.backend.deluxevision.controller;
 
 import java.util.List;
 
+import com.backend.deluxevision.model.Review;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,4 +63,35 @@ public class GlassesController {
 		glassesService.deleteGlassesById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+
+	@GetMapping("/{id}/reviews")
+	public ResponseEntity<List<Review>> getReviewsByGlassesId(@PathVariable("id") Long glassesId) {
+		List<Review> reviews = glassesService.getReviewsByGlassesId(glassesId);
+		return new ResponseEntity<>(reviews, HttpStatus.OK);
+	}
+/*
+	@GetMapping("/getreport")
+	public List getReport() {
+		return bookRepo.getBookReport();
+	}*/
+
+//	@GetMapping("/gettopten")
+//	public ResponseEntity<List<Glasses>> getTopTenGlasses() {
+//		List<Glasses> glasses = glassesService.getTopTenGlasses();
+//		return new ResponseEntity<>(glasses, HttpStatus.OK);
+//	}
+
+
+	@PostMapping("/addreview")
+	public ResponseEntity<Review> addReview(@RequestBody Review review) {
+		glassesService.addReview(review);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@GetMapping("/{category}")
+	public ResponseEntity<List<Glasses>> getGlassesByCategory(@PathVariable String category) {
+		List<Glasses> glasses = glassesService.getGlassesByCategory(category);
+		return new ResponseEntity<>(glasses, HttpStatus.OK);
+	}
+
 }
