@@ -1,0 +1,52 @@
+.container {
+    height: 45vh;
+    margin-bottom: 45vh;
+}
+
+.sectionTitle {
+    font-size: 70px;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Open Sans";
+
+}
+
+
+
+.titleButton {
+    font-size: 30px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 1s;
+    border-radius: 12px;
+
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+.titleButton:hover {
+    background-color: white;
+    color: purple;
+}
+
+.background {
+    width: 100vw;
+    height: 93.2vh;
+    border: none;
+    background-image: linear-gradient(to right, #2e22ac, #a23da1);
+
+}
+
