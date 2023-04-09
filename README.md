@@ -26,6 +26,7 @@ Run the frontend:
 
 Open the project in VS Code
 Right click 'frontend/src' and Select 'Open In Integrated Terminal'
+
 In terminal run 'ng serve'
 Open localhost 
 
