@@ -24,7 +24,7 @@ export class GlassesService {
       colour: 'Gold',
       glassesCode: 'RB3025',
       price: 199.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ export class GlassesService {
       colour: 'Black',
       glassesCode: 'RB2140',
       price: 149.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export class GlassesService {
       colour: 'Black',
       glassesCode: 'PO0714',
       price: 299.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ export class GlassesService {
       colour: 'Black',
       glassesCode: 'OO9102',
       price: 119.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 5,
@@ -68,7 +68,7 @@ export class GlassesService {
       colour: 'Tortoise',
       glassesCode: 'RB3016',
       price: 189.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 6,
@@ -79,7 +79,7 @@ export class GlassesService {
       colour: 'Havana',
       glassesCode: 'FT0378',
       price: 399.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 7,
@@ -90,7 +90,7 @@ export class GlassesService {
       colour: 'Havana',
       glassesCode: 'PO0649',
       price: 249.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 8,
@@ -101,7 +101,7 @@ export class GlassesService {
       colour: 'Tortoise',
       glassesCode: 'H202-10',
       price: 219.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
     {
       id: 9,
@@ -112,7 +112,7 @@ export class GlassesService {
       colour: 'Black',
       glassesCode: '0868S',
       price: 429.99,
-      imageURL: 'https://via.placeholder.com/300x200'
+      imageURL: 'https://www.kits.ca/cart/images/frames/items/6/61/61000001165_IMG.jpg%22%3E'
     },
   ];
 
