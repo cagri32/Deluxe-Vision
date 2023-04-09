@@ -25,7 +25,8 @@
     <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0px">
       <mat-grid-tile *ngFor="let product of displayedProducts">
         <mat-card>
-          <img mat-card-image [src]="product.imageURL" alt="{{product.name}}">
+          <img mat-card-image [src]="" alt="{{product.name}}"> 
+          <!-- product.imageURL -->
           <mat-card-content>
             <mat-card-content>
               <mat-card-title class="centered">{{product.name}}</mat-card-title>

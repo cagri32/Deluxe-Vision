@@ -25,18 +25,19 @@ export class ShopComponent {
   constructor(private cartService: CartService, private glassesService: GlassesService) {}
 
   ngOnInit(): void {
-    this.products = this.glassesService.getAllGlassesTest();
+    // this.products = this.glassesService.getAllGlassesTest();
 
-    // this.glassesService.getAllGlasses().subscribe((glasses: Glasses[]) => {
-    //   this.products = glasses;
-    // });
+    this.glassesService.getAllGlasses().subscribe((glasses: Glasses[]) => {
+      this.products = glasses;
+      this.sortedProducts = this.getSortedProducts();
+      this.displayedProducts = this.sortedProducts.slice(0, 6);
+    });
 
     this.categories = this.glassesService.getUniqueShapes();
     this.brands = this.glassesService.getUniqueBrands();
 
     this.selectedSortOption = 'priceAsc';
-    this.sortedProducts = this.getSortedProducts();
-    this.displayedProducts = this.sortedProducts.slice(0, 6);
+
   }
 
   getSortedProducts(): Glasses[] {

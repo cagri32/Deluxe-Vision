@@ -5,6 +5,8 @@ import { catchError, retry } from 'rxjs/operators';
 import { Glasses } from '../models/glasses';
 import { Glass } from '../models/glass';
 
+export const BASE_URI: string = "http://localhost:8080"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -115,7 +117,7 @@ export class GlassesService {
   ];
 
   getAllGlasses(): Observable<Glasses[]> {
-    return this.http.get<Glasses[]>('/glasses/all');
+    return this.http.get<Glasses[]>(BASE_URI +'/glasses/all');
   }
 
   getAllGlassesTest() {
