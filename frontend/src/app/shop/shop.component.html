@@ -1,50 +1,55 @@
-<mat-card class="container">
-  <div fxLayoutGap="100px">
-    <mat-form-field class="filter-field">
-      <mat-label>Filter by price:</mat-label>
-      <mat-select [(ngModel)]="selectedSortOption" (selectionChange)="onSortOptionChanged()">
-        <mat-option value="priceDesc">Price (descending)</mat-option>
-        <mat-option value="priceAsc">Price (ascending)</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Select a Category</mat-label>
-      <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategorySelected(selectedCategory)">
-        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-card class="containerTwo">
+    <mat-card-content>
+      <div fxLayoutGap="100px">
+      <mat-form-field class="filter-field">
+        <mat-label>Filter by price:</mat-label>
+        <mat-select [(ngModel)]="selectedSortOption" (selectionChange)="onSortOptionChanged()">
+          <mat-option value="priceDesc">Price (descending)</mat-option>
+          <mat-option value="priceAsc">Price (ascending)</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select a Category</mat-label>
+        <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategorySelected(selectedCategory)">
+          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Select a Brand</mat-label>
-      <mat-select [(ngModel)]="selectedBrand" (selectionChange)="onBrandSelected(selectedBrand)">
-        <mat-option *ngFor="let brand of brands" [value]="brand">{{brand}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="product-grid-container">
-    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0px">
-      <mat-grid-tile *ngFor="let product of displayedProducts">
-        <mat-card>
-          <img mat-card-image src="{{product.imageURL}}" alt="{{product.name}}">
-          <mat-card-content>
-            <mat-card-content>
-              <mat-card-title class="centered">{{product.name}}</mat-card-title>
-              <mat-card-subtitle class="centered">{{product.price | currency}}</mat-card-subtitle>
-            </mat-card-content>
-            <mat-card-content class="centered">
-              {{product.shape}}
-            </mat-card-content>
-            <br>
-            <mat-card-content class="centered">
-              <button mat-raised-button color="primary" (click)="addToCart(product)">Add to Cart</button>
-            </mat-card-content>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-
-    <div class="pagination">
-      <mat-paginator [length]="sortedProducts.length" [pageSize]="6" (page)="onPageChanged($event)"></mat-paginator>
+      <mat-form-field>
+        <mat-label>Select a Brand</mat-label>
+        <mat-select [(ngModel)]="selectedBrand" (selectionChange)="onBrandSelected(selectedBrand)">
+          <mat-option *ngFor="let brand of brands" [value]="brand">{{brand}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-  </div>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="container">
+    <div class="product-grid-container">
+      <mat-grid-list cols="3" rowHeight="1:1" gutterSize="0px">
+        <mat-grid-tile *ngFor="let product of displayedProducts">
+          <mat-card>
+            <img mat-card-image [src]="product.imageURL">
+            <mat-card-content>
+              <mat-card-content>
+                <mat-card-title class="centered">{{product?.name}}</mat-card-title>
+                <mat-card-subtitle class="centered">{{product?.price | currency}}</mat-card-subtitle>
+              </mat-card-content>
+              <mat-card-content class="centered">
+                {{product?.shape}}
+              </mat-card-content>
+              <br>
+              <mat-card-content class="centered">
+                <button mat-raised-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="pagination">
+        <mat-paginator [length]="sortedProducts.length" [pageSize]="6" (page)="onPageChanged($event)"></mat-paginator>
+      </div>
+    </div>
+  </mat-card>
