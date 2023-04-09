@@ -23,7 +23,6 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        user.setUserName(user.getUserName());
         return userRepo.save(user);
     }
 
