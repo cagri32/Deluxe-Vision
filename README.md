@@ -25,8 +25,8 @@ Right click on "/backend/src/main/java/com/backend/deluxevision/DeluxevisionAppl
 Run the frontend:
 
 Open the project in VS Code
-Right click 'frontend/src' and Select 'Open In Integrated Terminal'
+1. Right click 'frontend/src' and Select 'Open In Integrated Terminal'
+2. In terminal run 'ng serve'
+3. Open localhost 
 
-In terminal run 'ng serve'
-Open localhost 
 
