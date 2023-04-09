@@ -8,9 +8,22 @@
       <button mat-button routerLink="shop">Shop</button>
     </div>
     <div fxLayoutAlign="end center">
-      <button mat-button routerLink="login">
+      <button mat-button [matMenuTriggerFor]="userMenu" aria-label="User Account">
         <i class="fas fa-user"></i>
       </button>
+      <mat-menu #userMenu="matMenu">
+        <ng-container *ngIf="loggedInUser">
+          <div mat-menu-item>
+            {{ user.username }}
+          </div>
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </ng-container>
+        <ng-container *ngIf="!loggedInUser">
+          <button mat-menu-item routerLink="/login">Login</button>
+          <button mat-menu-item routerLink="/register">Register</button>
+        </ng-container>
+      </mat-menu>
+
     </div>
   </div>
 </mat-toolbar>

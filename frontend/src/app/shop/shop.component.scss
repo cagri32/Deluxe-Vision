@@ -1,8 +1,23 @@
-mat-card{
-    width: 70vw;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-
+.product-grid-container {
+    mat-grid-tile {
+        padding: 0;
+        margin: 0;
+    }
 }
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.mat-grid-tile mat-card {
+    height: 100%;
+}
+
+.filter-field {
+    max-width: 200px;
+}
+
+  

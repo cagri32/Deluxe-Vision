@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { LandingComponent } from './landing/landing.component';
 import { ShopComponent } from './shop/shop.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductDetailsComponent,
     AboutComponent,
     LandingComponent,
-    ShopComponent
+    ShopComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
