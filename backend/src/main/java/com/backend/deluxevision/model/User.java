@@ -11,12 +11,13 @@ public class User implements Serializable {
         // Default constructor
     }
 
-    public User(String userName, String email, String role, String billingAddress, String mailingAddress) {
+    public User(String userName, String email, String role, String billingAddress, String mailingAddress,String password) {
         this.userName = userName;
         this.email = email;
         this.role = role;
         this.billingAddress = billingAddress;
         this.mailingAddress = mailingAddress;
+        this.password = password;
     }
 
     @Id
@@ -26,6 +27,7 @@ public class User implements Serializable {
     private String role;
     private String billingAddress;
     private String mailingAddress;
+    private String password;
 
     public String getUserName() {
         return userName;
@@ -65,6 +67,14 @@ public class User implements Serializable {
 
     public void setMailingAddress(String mailingAddress) {
         this.mailingAddress = mailingAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

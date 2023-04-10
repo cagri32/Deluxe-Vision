@@ -11,6 +11,7 @@ public class Review implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
+//    @Column(name = "review_id",nullable = false, updatable = false)
     private Long reviewId;
     private Long glassesId;
     private String review;
