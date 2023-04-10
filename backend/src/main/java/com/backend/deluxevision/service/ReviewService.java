@@ -1,14 +1,17 @@
 package com.backend.deluxevision.service;
 
+import com.backend.deluxevision.model.User;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
 import com.backend.deluxevision.model.Review;
 import com.backend.deluxevision.repo.ReviewRepo;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +24,7 @@ public class ReviewService {
     }
 
     public Review addReview(Review review) {
-        review.setReviewId(new Random().nextLong());
+//        review.setReviewId(new Random().nextLong());
         return reviewRepo.save(review);
     }
 
@@ -34,4 +37,9 @@ public class ReviewService {
         return reviewRepo.findAll();
     }
 
+    public Review getReviewByReviewId(Long id) throws ChangeSetPersister.NotFoundException {
+        Optional<Review> reviewOptional = reviewRepo.getReviewByReviewId(id);
+        Review review = reviewOptional.orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        return review;
+    }
 }
