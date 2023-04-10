@@ -27,14 +27,11 @@ public class Glasses implements Serializable {
 	private Double price;
 	private String imageURL;
 
-	@Column(nullable = false, updatable = false)
-	private String glassesCode;
-
 	public Glasses() {
 		// Default constructor
 	}
 
-	public Glasses(Long id, String name, String shape, String brand, String category, String colour, Double price, String imageURL, String glassesCode) {
+	public Glasses(Long id, String name, String shape, String brand, String category, String colour, Double price, String imageURL) {
 		this.id = id;
 		this.name = name;
 		this.shape = shape;
@@ -43,7 +40,6 @@ public class Glasses implements Serializable {
 		this.colour = colour;
 		this.price = price;
 		this.imageURL = imageURL;
-		this.glassesCode = glassesCode;
 	}
 
 	public String getName() {
@@ -68,14 +64,6 @@ public class Glasses implements Serializable {
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-
-	public String getGlassesCode() {
-		return glassesCode;
-	}
-
-	public void setGlassesCode(String glassesCode) {
-		this.glassesCode = glassesCode;
 	}
 
 	public Long getId() {
@@ -129,7 +117,6 @@ public class Glasses implements Serializable {
 				", colour='" + colour + '\'' +
 				", price=" + price +
 				", imageURL='" + imageURL + '\'' +
-				", glassesCode='" + glassesCode + '\'' +
 				'}';
 	}
 }

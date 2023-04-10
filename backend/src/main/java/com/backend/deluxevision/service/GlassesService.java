@@ -33,7 +33,6 @@ public class GlassesService {
 
 
 	public Glasses addGlasses(Glasses glasses) {
-		glasses.setGlassesCode(UUID.randomUUID().toString());
 		return glassesRepo.save(glasses);
 	}
 
