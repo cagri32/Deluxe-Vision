@@ -11,31 +11,48 @@ import { LoginService } from '../services/login.service';
 })
 export class RegisterComponent implements OnInit{
   registerForm: FormGroup;
+  users: User[];
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(4)]],
-      role: ['standard', [Validators.required]]
+      role: ['customer', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      billing_address: ['', [Validators.required]],
+      mailing_address: ['', [Validators.required]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginService.getUser().subscribe({
+      next: (response) => {
+        this.users = response;
+      }
+    })
+  }
 
   onSubmit(): void {
     if (this.registerForm.valid) {
       const user: User = {
-        username: this.registerForm.get('username')?.value,
+        userName: this.registerForm.get('username')?.value,
         password: this.registerForm.get('password')?.value,
-        role: this.registerForm.get('role')?.value
+        role: this.registerForm.get('role')?.value,
+        billingAddress: this.registerForm.get('billing_address')?.value,
+        mailingAddress: this.registerForm.get('mailing_address')?.value,
+        email: this.registerForm.get('email')?.value,
       };
-      const added = this.loginService.register(user);
-      if (added) {
-        alert('User registered successfully!');
-        this.router.navigate(['/login']);
-      } else {
-        alert('User already exists!');
-      }
+      this.loginService.addUser(user).subscribe({
+        next: (response) => {
+          if (response) {
+            alert('User registered successfully!');
+            this.router.navigate(['/login']);
+          } else {
+            alert('User already exists!');
+          }
+        }
+      })
+      
     }
   }
 }

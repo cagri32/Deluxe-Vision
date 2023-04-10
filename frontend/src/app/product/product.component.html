@@ -1,1 +1,32 @@
-<p>product works!</p>
+<mat-card>
+  <mat-card-content>
+    <div class="glasses-container">
+      <div class="glasses" fxLayout="row">
+        <div class="glasses-image">
+          <img [src]="glasses.imageURL" alt="{{glasses.name}}">
+        </div>
+        <div class="glasses-details">
+          <h2 class="glasses-title" color="primary">{{glasses.name}}</h2>
+          <p class="glasses-brand">Brand: {{glasses.brand}}</p>
+          <p class="glasses-colour">Colour: {{glasses.colour}}</p>
+          <p class="glasses-shape">Shape: {{glasses.shape}}</p>
+          <p class="glasses-price">{{glasses.price | currency}}</p>
+          <div fxLayoutGap="5px" fxLayout="column">
+            <button mat-raised-button color="black" (click)="addToCart()" class="cartButton">Add to
+              Cart</button>
+            <button mat-raised-button color="black" (click)="review()" class="cartButton">Review</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-container">
+        <div class="review" *ngFor="let glass of glassInfo">
+          <p class="review-title">{{glass.title}}</p>
+          <p class="review-user">{{glass.userName}}</p>
+          <p class="review-text">{{glass.review}}</p>
+          <p class="review-rating">Rating: {{glass.rating}} stars</p>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

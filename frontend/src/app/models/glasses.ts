@@ -8,4 +8,5 @@ export class Glasses {
     name: string;
     price: number;
     shape: string;
+    quantity: number;
 }

@@ -1,0 +1,69 @@
+<mat-card *ngIf="flag == false">
+  <mat-card-content>
+    <h1>Checkout</h1>
+    <div class="cart-container">
+      <div *ngFor="let item of cartItems" class="cart-item" fxLayout="row" fxLayoutAlign="center center">
+        <div class="cart-item-image">
+          <img [src]="item.imageURL" alt="{{item.name}}" (click)="onTileClicked($event, item)">
+        </div>
+        <div class="cart-item-details" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center center">
+
+          <p class="cart-item-title">{{item.name}}</p>
+          <p class="cart-item-brand">Brand: {{item.brand}}</p>
+          <p class="cart-item-colour">Colour: {{item.colour}}</p>
+          <p class="cart-item-shape">Shape: {{item.shape}}</p>
+          <p class="cart-item-price">{{item.price | currency}}</p>
+          <p class="cart-item-quantity">{{item.quantity}}</p>
+          <button mat-icon-button color='primary' (click)="addToCart(item)">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button mat-icon-button color='warn' (click)="removeItem(item)">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <h2> Total Price: {{totalPrice | currency}} </h2>
+    <br>
+    <div *ngIf="loggedInUser">
+      <h1> Shipping Address: {{user.mailingAddress}} </h1>
+      <h1> Billing Address: {{user.mailingAddress}} </h1>
+      <h2> Final Price: {{finalPrice | currency}}</h2>
+    </div>
+    <div fxLayoutGap="5px">
+      <mat-form-field>
+        <mat-label>Card Number</mat-label>
+        <input matInput placeholder="Enter your card number" [formControl]="cardNumberFormControl" maxlength="16" />
+        <mat-error *ngIf="cardNumberFormControl.invalid">Please enter a valid 16-digit card number</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Expiration Date</mat-label>
+        <input matInput placeholder="MM/YY" [formControl]="expirationDateFormControl" maxlength="5" />
+        <mat-error *ngIf="expirationDateFormControl.invalid">Please enter a valid expiration date (MM/YY)</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Security Code</mat-label>
+        <input matInput placeholder="Enter the security code" [formControl]="securityCodeFormControl" maxlength="3" />
+        <mat-error *ngIf="securityCodeFormControl.invalid">Please enter a valid 3-digit security code</mat-error>
+      </mat-form-field>
+
+    </div>
+
+
+    <button mat-flat-button (click)='checkout()' color="primary" routerLink="/checkout/card"
+      [disabled]="!loggedInUser || !cardNumberFormControl.valid || !expirationDateFormControl.valid || !securityCodeFormControl.valid || cartItems.length <= 0">Checkout</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="flag == true" fxLayoutAlign="center">
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutAlign="center none">
+      <h1>Cart is Empty!</h1>
+      <button mat-flat-button color="primary" routerLink="/shop">Go to Shop</button>
+    </div>
+  </mat-card-content>
+</mat-card>

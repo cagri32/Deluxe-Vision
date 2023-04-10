@@ -6,6 +6,8 @@ import { AboutComponent } from './about/about.component';
 import { LandingComponent } from './landing/landing.component';
 import { ShopComponent } from './shop/shop.component';
 import { RegisterComponent } from './register/register.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutCardComponent } from './checkout/checkoutCard/checkout-card/checkout-card.component';
 
 const routes: Routes =
   [
@@ -15,6 +17,9 @@ const routes: Routes =
     { path: 'about', component: AboutComponent},
     { path: 'shop', component: ShopComponent},
     { path: 'register', component: RegisterComponent },
+    { path: 'shop/:id', component: ProductComponent },
+    { path: 'checkout', component: CheckoutComponent},
+    { path: 'checkout/card', component: CheckoutCardComponent}
 
   ];
 

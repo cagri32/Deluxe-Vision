@@ -4,6 +4,8 @@ import { CartService } from '../services/cart.service';
 import { Glasses } from '../models/glasses';
 import { PageEvent } from '@angular/material/paginator';
 import { GlassesService } from '../services/glasses.service';
+import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -21,8 +23,9 @@ export class ShopComponent {
   selectedSortOption: string = 'priceDesc';
   sortedProducts: Glasses[];
   displayedProducts: Glasses[];
+  cartItems: Glasses[];
 
-  constructor(private cartService: CartService, private glassesService: GlassesService) {}
+  constructor(private cartService: CartService, private glassesService: GlassesService, private router: Router) {}
 
   ngOnInit(): void {
     // this.products = this.glassesService.getAllGlassesTest();
@@ -31,10 +34,11 @@ export class ShopComponent {
       this.products = glasses;
       this.sortedProducts = this.getSortedProducts();
       this.displayedProducts = this.sortedProducts.slice(0, 6);
+      this.categories = this.glassesService.getUniqueShapes(this.products);
+      this.brands = this.glassesService.getUniqueBrands(this.products);
     });
 
-    this.categories = this.glassesService.getUniqueShapes();
-    this.brands = this.glassesService.getUniqueBrands();
+
 
     this.selectedSortOption = 'priceAsc';
 
@@ -80,6 +84,19 @@ export class ShopComponent {
   }
 
   addToCart(product: Glasses) {
-    this.cartService.addItemToCart(product);
+    const cartItemsFromLocalStorage = localStorage.getItem('cartItems');
+
+    if (cartItemsFromLocalStorage) {
+      this.cartItems = JSON.parse(cartItemsFromLocalStorage);
+    }
+    product.quantity = 1;
+    this.cartService.addItemToCart(product, this.cartItems);
+    this.cartService.removeDuplicates();
+    alert("Added to cart!");
+  }
+
+  onTileClicked(event: Event, product: Glasses) {
+    // handle tile click event
+    this.router.navigate(['/shop/' + product.id ]);
   }
 }

@@ -4,9 +4,9 @@
       <h2 class="card-title">Register</h2>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
-          <input matInput type="email" formControlName="username" placeholder="Email" required>
-          <mat-error *ngIf="registerForm.get('username')?.hasError('required')">Email is required</mat-error>
-          <mat-error *ngIf="registerForm.get('username')?.hasError('email')">Invalid email</mat-error>
+          <input matInput type="text" formControlName="username" placeholder="username" required>
+          <mat-error *ngIf="registerForm.get('username')?.hasError('required')">username is required</mat-error>
+          <mat-error *ngIf="registerForm.get('username')?.hasError('required')">Invalid username</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="password" formControlName="password" placeholder="Password" required>
@@ -16,10 +16,25 @@
         </mat-form-field>
         <mat-form-field>
           <mat-select formControlName="role" placeholder="Role" required>
-            <mat-option value="user">User</mat-option>
+            <mat-option value="user">Customer</mat-option>
             <mat-option value="admin">Admin</mat-option>
           </mat-select>
           <mat-error *ngIf="registerForm.get('role')?.hasError('required')">Role is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="billing_address" placeholder="Billing Address" required>
+          <mat-error *ngIf="registerForm.get('billing_address')?.hasError('required')">Billing Address is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="mailing_address" placeholder="Mailing Address" required>
+          <mat-error *ngIf="registerForm.get('mailing_address')?.hasError('required')">Mailing Address is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="email" formControlName="email" placeholder="Email Address" required>
+          <mat-error *ngIf="registerForm.get('email')?.hasError('required')">Email Address is required</mat-error>
+          <mat-error *ngIf="registerForm.get('email')?.hasError('email')">Invalid email</mat-error>
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
