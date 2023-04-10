@@ -20,9 +20,10 @@
       </div>
 
       <div class="reviews-container">
+        <h2 class="glasses-title" color="primary">Customer Reviews</h2>
         <div class="review" *ngFor="let glass of glassInfo">
           <p class="review-title">{{glass.title}}</p>
-          <p class="review-user">{{glass.userName}}</p>
+          <p class="review-user">{{glass.fullName}}</p>
           <p class="review-text">{{glass.review}}</p>
           <p class="review-rating">Rating: {{glass.rating}} stars</p>
         </div>

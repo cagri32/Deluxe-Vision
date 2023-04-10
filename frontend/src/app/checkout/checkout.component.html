@@ -6,25 +6,25 @@
         <div class="cart-item-image">
           <img [src]="item.imageURL" alt="{{item.name}}" (click)="onTileClicked($event, item)">
         </div>
-        <div class="cart-item-details" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center center">
+        <div class="cart-item-details" fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center">
 
-          <p class="cart-item-title">{{item.name}}</p>
-          <p class="cart-item-brand">Brand: {{item.brand}}</p>
-          <p class="cart-item-colour">Colour: {{item.colour}}</p>
-          <p class="cart-item-shape">Shape: {{item.shape}}</p>
-          <p class="cart-item-price">{{item.price | currency}}</p>
-          <p class="cart-item-quantity">{{item.quantity}}</p>
-          <button mat-icon-button color='primary' (click)="addToCart(item)">
-            <i class="fas fa-plus"></i>
-          </button>
+          <span class="cart-item-title">{{item.name}}</span>
+          <span class="cart-item-brand">Brand: {{item.brand}}</span>
+          <span class="cart-item-colour">Colour: {{item.colour}}</span>
+          <span class="cart-item-shape">Shape: {{item.shape}}</span>
+          <span class="cart-item-price">{{item.price | currency}}</span>
           <button mat-icon-button color='warn' (click)="removeItem(item)">
             <i class="fas fa-minus"></i>
+          </button>
+          <span class="cart-item-quantity">{{item.quantity}}</span>
+          <button mat-icon-button color='primary' (click)="addToCart(item)">
+            <i class="fas fa-plus"></i>
           </button>
         </div>
       </div>
     </div>
     <br>
-
+    <div class="checkoutForm">
     <h2> Total Price: {{totalPrice | currency}} </h2>
     <br>
     <div *ngIf="loggedInUser">
@@ -32,7 +32,7 @@
       <h1> Billing Address: {{user.mailingAddress}} </h1>
       <h2> Final Price: {{finalPrice | currency}}</h2>
     </div>
-    <div fxLayoutGap="5px">
+    <div fxLayoutGap="5px" fxLayout="column" fxLayoutAlign="center center">
       <mat-form-field>
         <mat-label>Card Number</mat-label>
         <input matInput placeholder="Enter your card number" [formControl]="cardNumberFormControl" maxlength="16" />
@@ -56,7 +56,8 @@
 
     <button mat-flat-button (click)='checkout()' color="primary" routerLink="/checkout/card"
       [disabled]="!loggedInUser || !cardNumberFormControl.valid || !expirationDateFormControl.valid || !securityCodeFormControl.valid || cartItems.length <= 0">Checkout</button>
-  </mat-card-content>
+    </div>
+    </mat-card-content>
 </mat-card>
 
 <mat-card *ngIf="flag == true" fxLayoutAlign="center">
