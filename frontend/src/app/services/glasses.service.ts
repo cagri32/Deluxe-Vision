@@ -14,19 +14,27 @@ export class GlassesService {
 
   constructor(private http: HttpClient) { }
 
-  products: Glasses[];
 
   getAllGlasses(): Observable<Glasses[]> {
-    return this.http.get<Glasses[]>(BASE_URI +'/glasses/all');
+    return this.http.get<Glasses[]>(BASE_URI + '/glasses/all');
   }
 
-  getAllGlassesTest() {
-    return this.products;
+  getGlassesWithID(id: number): Observable<Glasses> {
+    return this.http.get<Glasses>(BASE_URI + '/glasses/find/' + id);
   }
 
-  getUniqueShapes(): string[] {
+  getGlassesReviewId(id: number): Observable<Glass[]> {
+    return this.http.get<Glass[]>(`${BASE_URI}/glasses/${id}/reviews`);
+
+  }
+
+  addGlassesReview(glass: Glass): Observable<Glass> { 
+    return this.http.post<Glass>(BASE_URI + '/review/add', glass);
+  }
+
+  getUniqueShapes(products: Glasses[]): string[] {
     const shapes = ['All'];
-    this.products.forEach(product => {
+    products.forEach(product => {
       if (!shapes.includes(product.shape)) {
         shapes.push(product.shape);
       }
@@ -34,9 +42,9 @@ export class GlassesService {
     return shapes;
   }
 
-  getUniqueBrands(): string[] {
+  getUniqueBrands(products: Glasses[]): string[] {
     const brands = ['All'];
-    this.products.forEach(product => {
+    products.forEach(product => {
       if (!brands.includes(product.brand)) {
         brands.push(product.brand);
       }

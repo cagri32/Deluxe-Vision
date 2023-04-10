@@ -16,6 +16,9 @@ import { LandingComponent } from './landing/landing.component';
 import { ShopComponent } from './shop/shop.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ReviewDialogComponent } from './reviewDialog/review-dialog/review-dialog.component';
+import { CheckoutCardComponent } from './checkout/checkoutCard/checkout-card/checkout-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { RegisterComponent } from './register/register.component';
     AboutComponent,
     LandingComponent,
     ShopComponent,
-    RegisterComponent
+    RegisterComponent,
+    CheckoutComponent,
+    ReviewDialogComponent,
+    CheckoutCardComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+
+    <form [formGroup]="glassForm" style="text-align: center;">
+        <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="fullName" name="fullName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rating</mat-label>
+        <mat-select formControlName="rating" name="rating">
+          <mat-option *ngFor="let rating of [1, 2, 3, 4, 5]" [value]="rating">{{ rating }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Review Title</mat-label>
+        <input matInput formControlName="title" name="title">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Review</mat-label>
+        <input matInput formControlName="review" name="review">
+      </mat-form-field>
+
+      <br>
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="!loggedInUser || !glassForm.valid">Save</button>
+    </form>

@@ -13,11 +13,12 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   users: any;
+  flag: boolean;
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -30,13 +31,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const username = this.loginForm.get('username')?.value;
       const password = this.loginForm.get('password')?.value;
-      const user = this.users.find((u: User) => u.username === username && u.password === password);
+      const user = {username: username, password: password}
       if (user) {
         this.loginService.login(username, password);
-        this.router.navigate(['/shop']);
-      } else {
-        alert('Invalid username or password!');
-      }
+      } 
     }
   }
 

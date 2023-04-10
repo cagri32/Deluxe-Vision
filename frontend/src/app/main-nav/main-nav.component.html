@@ -8,13 +8,31 @@
       <button mat-button routerLink="shop">Shop</button>
     </div>
     <div fxLayoutAlign="end center">
+      <button mat-button [matMenuTriggerFor]="checkMenu">
+        <i class="fas fa-shopping-cart"></i>
+        <mat-badge [matBadge]="cartItemCount" matBadgePosition="after">
+        </mat-badge>
+      </button>
+      <mat-menu #checkMenu="matMenu">
+        <ng-container *ngIf="cartItemCount">
+          <button mat-menu-item routerLink="/checkout">Checkout</button>
+          <button mat-menu-item (click)="clearCart()">Clear Cart</button>
+        </ng-container>
+        <ng-container *ngIf="!cartItemCount">
+          <div mat-menu-item>
+            Cart Empty
+          </div>
+        </ng-container>
+      </mat-menu>
+
       <button mat-button [matMenuTriggerFor]="userMenu" aria-label="User Account">
         <i class="fas fa-user"></i>
       </button>
+
       <mat-menu #userMenu="matMenu">
         <ng-container *ngIf="loggedInUser">
           <div mat-menu-item>
-            {{ user.username }}
+            {{ user.userName }}
           </div>
           <button mat-menu-item (click)="logout()">Logout</button>
         </ng-container>
@@ -23,7 +41,6 @@
           <button mat-menu-item routerLink="/register">Register</button>
         </ng-container>
       </mat-menu>
-
     </div>
   </div>
 </mat-toolbar>
