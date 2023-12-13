@@ -1,7 +1,13 @@
 # Deluxe-Vision
 
+Technologies Used:
 
-Dependencies and Technologies We used:
+1. Angular
+2. Java
+3. MYSQL
+4. AWS ( Frontend, Backend & Database Deployment)
+
+Dependencies:
 
 1. JDK 20
 2. Git 
